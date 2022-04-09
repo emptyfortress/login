@@ -1,21 +1,15 @@
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-	components: { HelloWorld },
-	setup() {
-		return {}
-	},
-}
-</script>
-
-<template>
-	<img alt="Vue logo" src="./assets/logo.png" />
-	<HelloWorld msg="lakjsdlkj" />
-	<p>laksjd!!!</p>
+<template lang="pug">
+img(alt="Vue logo" src="@/assets/logo.png")
+HelloWorld(msg="oooooooooooooooo")
+.test
+	span laksjd
 </template>
 
-<style>
+<script setup lang="ts">
+import HelloWorld from './components/HelloWorld.vue'
+</script>
+
+<style lang="scss">
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -23,5 +17,8 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+}
+.test {
+	color: red;
 }
 </style>

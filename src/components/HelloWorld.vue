@@ -1,17 +1,19 @@
 <template lang="pug">
 h2 {{ msg }}
+p {{ name }}
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue'
 
-export default {
-	setup() {
-		const msg = ref('lakjsdlk')
+const name = ref('fff')
 
-		return { msg }
+const props = defineProps({
+	msg: {
+		type: String,
+		default: 'mylkajs',
 	},
-}
+})
 </script>
 
 <style scoped lang="scss">
