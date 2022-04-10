@@ -8,15 +8,19 @@
 			div ИЛИ
 			q-separator(color="white")
 
-		q-input(outlined dark dense placeholder="Docsvision login")
-		q-input(outlined dark dense type="password" placeholder="Password")
-		q-icon(name="mdi-close" color="white")
-			//- template(v-slot:append)
-			//- 	q-icon(:name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd")
+		q-input(v-model="dvlogin" outlined dark dense placeholder="Docsvision login")
+		q-input(v-model="password" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
+			template(v-slot:append)
+				q-icon(:name="isPwd ? 'mdi-eye-off' : 'mdi-eye'" class="cursor-pointer" @click="isPwd = !isPwd")
 </template>
 
-<script setup="setup">
+<script setup="setup" lang="ts">
+import { ref } from 'vue'
 import MyButton from '@/components/MyButton.vue'
+
+const isPwd = ref(true)
+const dvlogin = ref('')
+const password = ref('')
 
 const buttons = [
 	{ label: 'Продолжить с Azure', icon: 'azure' },
