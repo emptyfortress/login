@@ -7,7 +7,7 @@ q-btn(color="primary") button
 
 <script setup="setup" lang="ts">
 import { ref } from 'vue'
-const name = ref('constant')
+// const name = ref('constant')
 const props = defineProps({
 	msg: {
 		type: String,
