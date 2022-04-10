@@ -3,10 +3,19 @@
 	img(src="@/assets/logo.svg")
 	.form
 		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon")
+		.grid
+			q-separator(color="white")
+			div ИЛИ
+			q-separator(color="white")
 
+		q-input(outlined dark dense placeholder="Docsvision login")
+		q-input(outlined dark dense type="password" placeholder="Password")
+		q-icon(name="mdi-close" color="white")
+			//- template(v-slot:append)
+			//- 	q-icon(:name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd")
 </template>
 
-<script setup="setup" lang="ts">
+<script setup="setup">
 import MyButton from '@/components/MyButton.vue'
 
 const buttons = [
@@ -22,7 +31,7 @@ const buttons = [
 	padding: 1rem;
 	padding-top: 2rem;
 	min-height: 50%;
-	min-width: 500px;
+	min-width: 400px;
 	border: 1px solid #ffffffaa;
 	border-radius: 0.3rem;
 	background: rgba($color: #000000, $alpha: 0.7);
@@ -31,9 +40,6 @@ const buttons = [
 	img {
 		width: 180px;
 	}
-	.q-btn {
-		/* width: 280px; */
-	}
 }
 .form {
 	width: 240px;
@@ -41,5 +47,16 @@ const buttons = [
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+}
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 80px 1fr;
+	align-content: center;
+	height: 50px;
+	color: #fff;
+	margin-left: -20px;
+	margin-right: -20px;
+	font-size: 1rem;
+	align-items: center;
 }
 </style>

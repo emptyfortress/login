@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@quasar/extras": "^1.13.5",
+    "quasar": "^2.6.6",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14"
   },
