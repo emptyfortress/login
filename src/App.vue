@@ -1,6 +1,7 @@
 <template lang="pug">
 q-layout(view="hHh lpR fFf")
-	q-drawer(show-if-above v-model="leftDrawerOpen" side="left" overlay bordered)
+	q-drawer(show-if-above v-model="leftDrawerOpen" side="left" bordered)
+		Drawer
 	q-page-container
 		.container
 			router-view
@@ -10,9 +11,11 @@ q-layout(view="hHh lpR fFf")
 
 </template>
 
-<script setup="setup" lang="ts">
-import { ref, reactive } from 'vue'
-const leftDrawerOpen = ref(false)
+<script setup="setup">
+import { ref } from 'vue'
+import Drawer from '@/components/Drawer.vue'
+
+const leftDrawerOpen = ref(true)
 </script>
 
 <style lang="scss">
@@ -26,6 +29,7 @@ const leftDrawerOpen = ref(false)
 
 .q-page-container {
 	background: url('@/assets/login.jpg');
+	background-size: cover;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -41,9 +45,10 @@ const leftDrawerOpen = ref(false)
 }
 
 .q-drawer {
-	background: $dark1;
+	background: $dark;
 }
 .q-footer {
-	background: $dark;
+	background: transparent;
+	border-top: 1px solid darkblue;
 }
 </style>
