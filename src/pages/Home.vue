@@ -1,9 +1,21 @@
 <template lang="pug">
 .card
 	img(src="@/assets/logo.svg")
+	.form
+		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon")
+
 </template>
 
-<script setup="setup" lang="ts"></script>
+<script setup="setup" lang="ts">
+import MyButton from '@/components/MyButton.vue'
+
+const buttons = [
+	{ label: 'Продолжить с Azure', icon: 'azure' },
+	{ label: 'Продолжить с Google', icon: 'google' },
+	{ label: 'Продолжить с Facebook', icon: 'fb' },
+	{ label: 'Продолжить с Twitter', icon: 'twitter' },
+]
+</script>
 
 <style scoped lang="scss">
 .card {
@@ -19,5 +31,15 @@
 	img {
 		width: 180px;
 	}
+	.q-btn {
+		/* width: 280px; */
+	}
+}
+.form {
+	width: 240px;
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 </style>
