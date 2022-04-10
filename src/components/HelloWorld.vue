@@ -1,26 +1,23 @@
 <template lang="pug">
-h2 {{ msg }}
-p {{ name }}
+h2 hello
+h3 {{ name }}
+h3 {{ props.msg }}
+q-btn(color="primary") button
 </template>
 
-<script setup lang="ts">
+<script setup="setup" lang="ts">
 import { ref } from 'vue'
-
-const name = ref('fff')
-
+const name = ref('constant')
 const props = defineProps({
 	msg: {
 		type: String,
-		default: 'mylkajs',
+		default: 'default msg',
 	},
 })
 </script>
 
 <style scoped lang="scss">
-a {
-	color: #42b983;
-	&:hover {
-		color: red;
-	}
+body {
+	width: 100%;
 }
 </style>

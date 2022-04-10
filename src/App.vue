@@ -1,11 +1,10 @@
 <template lang="pug">
-img(alt="Vue logo" src="@/assets/logo.png")
-HelloWorld(msg="oooooooooooooooo")
-.test
-	span laksjd
+img(src="@/assets/logo.png")
+p text from app
+HelloWorld
 </template>
 
-<script setup lang="ts">
+<script setup="setup" lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
@@ -17,8 +16,5 @@ import HelloWorld from './components/HelloWorld.vue'
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
-}
-.test {
-	color: red;
 }
 </style>
