@@ -3,7 +3,7 @@
 	img(src="@/assets/logo.svg")
 	p.text-white {{ state.variant }}
 	.form
-		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/google" @click="setVendor(button.icon)")
+		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/vendors" @click="setVendor(button.icon)")
 		.grid
 			q-separator(color="white")
 			div ИЛИ

@@ -1,9 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
 import Cookie from '@/pages/Cookie.vue'
-import Google from '@/components/Google.vue'
+import Vendors from '@/components/Vendors.vue'
 import Congrat from '@/components/Congrat.vue'
-import Fb from '@/components/Fb.vue'
 
 export const router = createRouter({
 	history: createWebHashHistory(),
@@ -35,13 +34,13 @@ export const router = createRouter({
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 		{
-			path: '/google',
-			component: Google,
+			path: '/vendors',
+			component: Vendors,
 			meta: { transition: 'slide-left', title: 'Docsvision' },
 		},
 		{
 			path: '/fb',
-			component: Google,
+			component: Vendors,
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 	],
