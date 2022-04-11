@@ -1,5 +1,5 @@
 <template lang="pug">
-q-btn(color="white" align="left" text-color="black" no-caps).with
+q-btn(color="white" align="left" text-color="black" no-caps :to="url").with
 	img(:src="getImageUrl(icon)")
 	span {{ label}}
 </template>
@@ -8,6 +8,7 @@ q-btn(color="white" align="left" text-color="black" no-caps).with
 const props = defineProps({
 	label: { type: String, default: 'label' },
 	icon: { type: String, default: 'azure' },
+	url: { type: String, default: 'login' },
 })
 
 function getImageUrl(name) {

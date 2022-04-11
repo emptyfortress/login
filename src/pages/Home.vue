@@ -2,7 +2,7 @@
 .card
 	img(src="@/assets/logo.svg")
 	.form
-		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon")
+		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" :url="button.url")
 		.grid
 			q-separator(color="white")
 			div ИЛИ
@@ -23,8 +23,8 @@ const dvlogin = ref('')
 const password = ref('')
 
 const buttons = [
-	{ label: 'Продолжить с Azure', icon: 'azure' },
-	{ label: 'Продолжить с Google', icon: 'google' },
+	{ label: 'Продолжить с Google', icon: 'google', url: 'google' },
+	{ label: 'Продолжить с Facebook', icon: 'fb', url: 'fb' },
 	// { label: 'Продолжить с Facebook', icon: 'fb' },
 	// { label: 'Продолжить с Twitter', icon: 'twitter' },
 ]

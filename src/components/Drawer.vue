@@ -12,7 +12,11 @@ q-list(bordered)
 const items = [
 	{ label: 'Успешный сценарий', icon: 'mdi-numeric-1-box', to: '/login' },
 	{ label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/vendors' },
-	{ label: 'Повторный логин (куки)', icon: 'mdi-numeric-3-box', to: '/fuck' },
+	{
+		label: 'Повторный логин (куки)',
+		icon: 'mdi-numeric-3-box',
+		to: '/cookies',
+	},
 ]
 </script>
 

@@ -12,12 +12,27 @@ export const router = createRouter({
 		{
 			path: '/login',
 			component: Home,
-			meta: { transition: 'slide-left', title: 'Docsvision' },
+			meta: { transition: 'fade', title: 'Docsvision' },
+		},
+		{
+			path: '/google',
+			component: () => import('@/pages/Google.vue'),
+			meta: { transition: 'fade', title: 'Login with Google' },
+		},
+		{
+			path: '/fb',
+			component: () => import('@/pages/Fb.vue'),
+			meta: { transition: 'fade', title: 'Login with Facebook' },
+		},
+		{
+			path: '/cookies',
+			component: () => import('@/pages/Cookies.vue'),
+			meta: { transition: 'fade', title: 'Cookies' },
 		},
 		{
 			path: '/vendors',
 			component: () => import('@/pages/Vendors.vue'),
-			meta: { transition: 'slide-left', title: 'Vendors' },
+			meta: { transition: 'fade', title: 'Vendors' },
 		},
 
 		// {
