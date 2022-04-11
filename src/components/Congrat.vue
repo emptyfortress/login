@@ -1,7 +1,8 @@
 <template lang="pug">
 .card
-	h4 Вы успешно<br /> авторизовались
 	img(src="@/assets/thumbs-up.svg")
+	h5 Вы успешно<br /> авторизовались
+	q-btn(color="primary" label="Назад" @click="$router.push('/')")
 </template>
 
 <script setup="setup" lang="ts"></script>
@@ -9,6 +10,10 @@
 <style scoped lang="scss">
 /*@import '@/assets/styles/theme.scss';*/
 .card {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
 	padding: 1rem;
 	padding-top: 2rem;
 	min-height: 300px;
@@ -19,7 +24,6 @@
 	box-shadow: -8px -8px 6px rgba($color: #000000, $alpha: 0.5),
 		8px 8px 6px rgba($color: #000000, $alpha: 0.5);
 	color: white;
-
 	img {
 		width: 120px;
 	}
