@@ -4,8 +4,8 @@ q-layout(view="hHh lpR fFf")
 		Drawer
 	q-page-container
 		.container
-			router-view(v-slot="{Component}")
-				transition(name="fade")
+			router-view(v-slot="{ Component, route }")
+				transition(:name="route.meta.transition || 'fade'")
 					component(:is="Component")
 	q-footer(bordered)
 		q-toolbar
@@ -22,7 +22,7 @@ const leftDrawerOpen = ref(true)
 
 <style lang="scss">
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;

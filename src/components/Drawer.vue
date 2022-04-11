@@ -8,19 +8,19 @@ q-list(bordered)
 			q-item-label {{ item.label }}
 </template>
 
-<script setup lang="ts">
+<script setup="setup">
 import { useState } from '@/stores/store'
 
 const items = [
 	{
-		id: 1,
+		id: 'success',
 		label: 'Успешный сценарий',
 		icon: 'mdi-numeric-1-box',
 		to: '/success',
 	},
-	{ id: 2, label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/error' },
+	{ id: 'error', label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/error' },
 	{
-		id: 3,
+		id: 'cookie',
 		label: 'Повторный логин (куки)',
 		icon: 'mdi-numeric-3-box',
 		to: '/cookie',
@@ -35,9 +35,6 @@ const setVar = (e) => {
 
 <style scoped lang="scss">
 /*@import '@/assets/styles/theme.scss';*/
-.test {
-	width: 100%;
-}
 .q-list {
 	margin-top: 5rem;
 }

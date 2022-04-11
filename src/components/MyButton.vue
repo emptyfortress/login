@@ -4,7 +4,7 @@ q-btn(color="white" align="left" text-color="black" no-caps :to="url").with
 	span {{ label}}
 </template>
 
-<script setup="setup" lang="ts">
+<script setup="setup">
 const props = defineProps({
 	label: { type: String, default: 'label' },
 	icon: { type: String, default: 'azure' },

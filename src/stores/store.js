@@ -3,12 +3,16 @@ import { defineStore } from 'pinia'
 export const useState = defineStore({
 	id: 'state',
 	state: () => ({
-		var: 1,
+		variant: 'success',
+		vendor: 'google',
 	}),
 	getters: {},
 	actions: {
 		setVar(e) {
-			this.var = e
+			this.variant = e
+		},
+		setVendor(e) {
+			this.vendor = e
 		},
 	},
 })

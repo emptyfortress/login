@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
+import Cookie from '@/pages/Cookie.vue'
+import Google from '@/components/Google.vue'
+import Congrat from '@/components/Congrat.vue'
+import Fb from '@/components/Fb.vue'
 
 export const router = createRouter({
 	history: createWebHashHistory(),
@@ -7,66 +11,39 @@ export const router = createRouter({
 	routes: [
 		{
 			path: '/',
-			redirect: '/login/success',
+			redirect: '/success',
 		},
 		{
 			path: '/success',
 			component: Home,
-			props: { var: 'success' },
+			props: { variant: 'success' },
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 		{
 			path: '/error',
 			component: Home,
-			props: { var: 'error' },
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 		{
 			path: '/cookie',
-			component: Home,
-			props: { var: 'cookie' },
+			component: Cookie,
+			meta: { title: 'Docsvision' },
+		},
+		{
+			path: '/congrat',
+			component: Congrat,
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
-
 		{
 			path: '/google',
-			component: () => import('@/pages/Google.vue'),
-			meta: { transition: 'fade', title: 'Login with Google' },
+			component: Google,
+			meta: { transition: 'slide-left', title: 'Docsvision' },
 		},
 		{
 			path: '/fb',
-			component: () => import('@/pages/Fb.vue'),
-			meta: { transition: 'fade', title: 'Login with Facebook' },
+			component: Google,
+			meta: { transition: 'fade', title: 'Docsvision' },
 		},
-		{
-			path: '/cookies',
-			component: () => import('@/pages/Cookies.vue'),
-			meta: { transition: 'fade', title: 'Cookies' },
-		},
-		{
-			path: '/Error',
-			component: () => import('@/pages/Vendors.vue'),
-			meta: { transition: 'fade', title: 'Errors' },
-		},
-
-		// {
-		// 	path: '/ks',
-		// 	name: 'ks',
-		// 	component: () => import('@/pages/Ks.vue'),
-		// 	meta: { transition: 'slide-left', title: 'Супер конструктор' },
-		// },
-		// {
-		// 	path: '/dashboard',
-		// 	name: 'dashboard',
-		// 	component: () => import('@/pages/Dashboard.vue'),
-		// 	meta: { transition: 'slide-left', title: 'Дашборд' },
-		// },
-		// {
-		// 	path: '/grid',
-		// 	name: 'grid',
-		// 	component: () => import('@/pages/Grid.vue'),
-		// 	meta: { transition: 'slide-left', title: 'Grid' },
-		// },
 	],
 })
 

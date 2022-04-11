@@ -1,9 +1,9 @@
 <template lang="pug">
 .card
 	img(src="@/assets/logo.svg")
-	p.text-white {{ var }}
+	p.text-white {{ state.variant }}
 	.form
-		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" :url="button.url")
+		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/google" @click="setVendor(button.icon)")
 		.grid
 			q-separator(color="white")
 			div ИЛИ
@@ -13,30 +13,28 @@
 		q-input(v-model="password" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
 			template(v-slot:append)
 				q-icon(:name="isPwd ? 'mdi-eye-off' : 'mdi-eye'" class="cursor-pointer" @click="isPwd = !isPwd")
-		q-btn(color="primary" @click="login").q-mt-md Войти
+		q-btn(color="primary" :disabled="!(dvlogin.length && password.length)" @click="router.push('/congrat')").q-mt-md Войти
 </template>
 
-<script setup="setup" lang="ts">
+<script setup="setup">
 import { ref } from 'vue'
 import MyButton from '@/components/MyButton.vue'
 import { useState } from '@/stores/store'
 import { router } from '@/router/router'
 
-const props = defineProps({
-	var: { type: String, required: true },
-})
-
 const isPwd = ref(true)
 const dvlogin = ref('')
 const password = ref('')
+
 const state = useState()
 
-const login = () => {}
-
 const buttons = [
-	{ label: 'Продолжить с Google', icon: 'google', url: 'google' },
-	{ label: 'Продолжить с Facebook', icon: 'fb', url: 'fb' },
+	{ label: 'Продолжить с Google', icon: 'google' },
+	{ label: 'Продолжить с Facebook', icon: 'fb' },
 ]
+const setVendor = (e) => {
+	state.setVendor(e)
+}
 </script>
 
 <style scoped lang="scss">
