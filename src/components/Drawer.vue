@@ -10,9 +10,9 @@ q-list(bordered)
 
 <script setup="setup" lang="ts">
 const items = [
-	{ label: 'вариант', icon: 'mdi-numeric-1-box', to: '/login' },
-	{ label: 'вариант', icon: 'mdi-numeric-2-box', to: '/vendors' },
-	{ label: 'вариант', icon: 'mdi-numeric-3-box', to: '/fuck' },
+	{ label: 'Успешный сценарий', icon: 'mdi-numeric-1-box', to: '/login' },
+	{ label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/vendors' },
+	{ label: 'Повторный логин (куки)', icon: 'mdi-numeric-3-box', to: '/fuck' },
 ]
 </script>
 
@@ -23,5 +23,9 @@ const items = [
 }
 .q-item {
 	padding-left: 2rem;
+}
+.q-router-link--active {
+	background: rgba($color: $primary, $alpha: 0.4);
+	color: white;
 }
 </style>

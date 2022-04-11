@@ -4,7 +4,9 @@ q-layout(view="hHh lpR fFf")
 		Drawer
 	q-page-container
 		.container
-			router-view
+			router-view(v-slot="{Component}")
+				transition(name="fade")
+					component(:is="Component")
 	q-footer(bordered)
 		q-toolbar
 			q-btn(flat round dense icon="mdi-menu" @click="leftDrawerOpen = !leftDrawerOpen").q-mr-sm
