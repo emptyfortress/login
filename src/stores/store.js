@@ -6,5 +6,9 @@ export const useState = defineStore({
 		var: 1,
 	}),
 	getters: {},
-	actions: {},
+	actions: {
+		setVar(e) {
+			this.var = e
+		},
+	},
 })

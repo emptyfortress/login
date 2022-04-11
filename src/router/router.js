@@ -7,13 +7,27 @@ export const router = createRouter({
 	routes: [
 		{
 			path: '/',
-			redirect: '/login',
+			redirect: '/login/success',
 		},
 		{
-			path: '/login',
+			path: '/success',
 			component: Home,
+			props: { var: 'success' },
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
+		{
+			path: '/error',
+			component: Home,
+			props: { var: 'error' },
+			meta: { transition: 'fade', title: 'Docsvision' },
+		},
+		{
+			path: '/cookie',
+			component: Home,
+			props: { var: 'cookie' },
+			meta: { transition: 'fade', title: 'Docsvision' },
+		},
+
 		{
 			path: '/google',
 			component: () => import('@/pages/Google.vue'),

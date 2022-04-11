@@ -1,6 +1,7 @@
 <template lang="pug">
 .card
 	img(src="@/assets/logo.svg")
+	p.text-white {{ var }}
 	.form
 		MyButton(v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" :url="button.url")
 		.grid
@@ -12,16 +13,25 @@
 		q-input(v-model="password" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
 			template(v-slot:append)
 				q-icon(:name="isPwd ? 'mdi-eye-off' : 'mdi-eye'" class="cursor-pointer" @click="isPwd = !isPwd")
-		q-btn(color="primary").q-mt-md Войти
+		q-btn(color="primary" @click="login").q-mt-md Войти
 </template>
 
 <script setup="setup" lang="ts">
 import { ref } from 'vue'
 import MyButton from '@/components/MyButton.vue'
+import { useState } from '@/stores/store'
+import { router } from '@/router/router'
+
+const props = defineProps({
+	var: { type: String, required: true },
+})
 
 const isPwd = ref(true)
 const dvlogin = ref('')
 const password = ref('')
+const state = useState()
+
+const login = () => {}
 
 const buttons = [
 	{ label: 'Продолжить с Google', icon: 'google', url: 'google' },
