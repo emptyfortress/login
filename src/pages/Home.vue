@@ -12,6 +12,7 @@
 		q-input(v-model="password" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
 			template(v-slot:append)
 				q-icon(:name="isPwd ? 'mdi-eye-off' : 'mdi-eye'" class="cursor-pointer" @click="isPwd = !isPwd")
+		q-btn(color="primary").q-mt-md Войти
 </template>
 
 <script setup="setup" lang="ts">
@@ -25,8 +26,6 @@ const password = ref('')
 const buttons = [
 	{ label: 'Продолжить с Google', icon: 'google', url: 'google' },
 	{ label: 'Продолжить с Facebook', icon: 'fb', url: 'fb' },
-	// { label: 'Продолжить с Facebook', icon: 'fb' },
-	// { label: 'Продолжить с Twitter', icon: 'twitter' },
 ]
 </script>
 

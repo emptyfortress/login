@@ -30,9 +30,9 @@ export const router = createRouter({
 			meta: { transition: 'fade', title: 'Cookies' },
 		},
 		{
-			path: '/vendors',
+			path: '/Error',
 			component: () => import('@/pages/Vendors.vue'),
-			meta: { transition: 'fade', title: 'Vendors' },
+			meta: { transition: 'fade', title: 'Errors' },
 		},
 
 		// {

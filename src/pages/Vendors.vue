@@ -1,5 +1,5 @@
 <template lang="pug">
-h2 Vendors!
+h2 Errors!
 </template>
 
 <script setup="setup" lang="ts"></script>

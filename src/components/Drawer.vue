@@ -11,7 +11,7 @@ q-list(bordered)
 <script setup="setup" lang="ts">
 const items = [
 	{ label: 'Успешный сценарий', icon: 'mdi-numeric-1-box', to: '/login' },
-	{ label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/vendors' },
+	{ label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/error' },
 	{
 		label: 'Повторный логин (куки)',
 		icon: 'mdi-numeric-3-box',
