@@ -46,7 +46,7 @@ div
 
 </template>
 
-<script setup="setup">
+<script setup lang="ts">
 import { useState } from '@/stores/store'
 import { ref } from 'vue'
 import { router } from '@/router/router'
@@ -65,6 +65,8 @@ const choose = () => {
 		router.push('/congrat')
 	} else if (state.variant === 'error') {
 		router.push('/stop')
+	} else if (state.cookie === 'cookie') {
+		router.push('/congrat')
 	}
 }
 </script>

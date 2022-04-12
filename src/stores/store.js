@@ -5,6 +5,7 @@ export const useState = defineStore({
 	state: () => ({
 		variant: 'success',
 		vendor: 'google',
+		cookie: 'success',
 	}),
 	getters: {},
 	actions: {
@@ -13,6 +14,9 @@ export const useState = defineStore({
 		},
 		setVendor(e) {
 			this.vendor = e
+		},
+		setCookie(e) {
+			this.cookie = e
 		},
 	},
 })

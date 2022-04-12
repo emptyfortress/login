@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
 import Cookie from '@/pages/Cookie.vue'
+import Google from '@/pages/Google.vue'
 import Vendors from '@/components/Vendors.vue'
 import Congrat from '@/components/Congrat.vue'
 import Stop from '@/components/Stop.vue'
@@ -27,6 +28,11 @@ export const router = createRouter({
 		{
 			path: '/cookie',
 			component: Cookie,
+			meta: { transition: 'fade', title: 'Docsvision' },
+		},
+		{
+			path: '/google',
+			component: Google,
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 		{

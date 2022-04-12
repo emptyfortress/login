@@ -3,7 +3,7 @@
 	img(src="@/assets/logo.svg")
 	.coki(v-if="state.variant === 'cookie'")
 		img(src="@/assets/user.svg")
-		.q-mt-md.text-white.text-h6 Привет, kmg01!
+		.q-mt-md.text-white.text-h6 Привет, Оля!
 	.form
 		MyButton(v-if="state.variant !== 'cookie'" v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/vendors" @click="setVendor(button.icon)")
 		.grid(v-if="state.variant !== 'cookie'" )
@@ -11,17 +11,20 @@
 			div ИЛИ
 			q-separator(color="white")
 
-		q-input(v-model="dvlogin" outlined dark dense placeholder="Docsvision login")
-		q-input(v-model="password" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
+		q-btn(v-if="$route.fullPath === '/google'" color="white" align="left" text-color="black" no-caps @click="repeatGoogle").with
+			img(src="@/assets/google.svg")
+			span Продолжить с Google
+
+		q-input(v-model="dvlogin" v-if="state.cookie !== 'cookie'" outlined dark dense placeholder="Docsvision login")
+		q-input(v-model="password" v-if="$route.fullPath !== '/google'" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
 			template(v-slot:append)
 				q-icon(:name="isPwd ? 'mdi-eye-off' : 'mdi-eye'" class="cursor-pointer" @click="isPwd = !isPwd")
-		q-btn(color="primary" :disabled="!(dvlogin.length && password.length)" @click="router.push('/congrat')").q-mt-md Войти
+		q-btn(color="primary"  v-if="$route.fullPath !== '/google'" :disabled="!(dvlogin.length && password.length)" @click="router.push('/congrat')").q-mt-md Войти
 		.capt(v-if="state.variant === 'cookie'")
-			span Не kmg01?
 			span(@click="back").link Сменить пользователя
 </template>
 
-<script setup="setup">
+<script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { useState } from '@/stores/store'
 import { router } from '@/router/router'
@@ -32,13 +35,8 @@ const password = ref('')
 const dvlogin = ref('')
 const state = useState()
 
-// const dvlogin = computed(() => {
-// 	if (state.variant === 'cookie') {
-// 		return 'kmg01@docsvision.com'
-// 	} else return ''
-// })
 watchEffect(() => {
-	if (state.variant === 'cookie') {
+	if (state.cookie === 'cookie') {
 		dvlogin.value = 'kmg01@docsvision.com'
 	}
 })
@@ -55,6 +53,10 @@ const back = () => {
 	dvlogin.value = ''
 	password.value = ''
 	router.push('/success')
+}
+const repeatGoogle = () => {
+	state.setVendor('google')
+	router.push('/vendors')
 }
 </script>
 
@@ -106,6 +108,12 @@ const back = () => {
 		margin-left: 0.5rem;
 		text-decoration: underline;
 		cursor: pointer;
+	}
+}
+.with {
+	img {
+		width: 24px;
+		margin-right: 1rem;
 	}
 }
 </style>

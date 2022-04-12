@@ -8,7 +8,7 @@ q-list(bordered)
 			q-item-label {{ item.label }}
 </template>
 
-<script setup="setup">
+<script setup lang="ts">
 import { useState } from '@/stores/store'
 
 const items = [
@@ -21,15 +21,22 @@ const items = [
 	{ id: 'error', label: 'Ошибка', icon: 'mdi-numeric-2-box', to: '/error' },
 	{
 		id: 'cookie',
-		label: 'Повторный логин (куки)',
+		label: 'Повторный логин (DV)',
 		icon: 'mdi-numeric-3-box',
 		to: '/cookie',
+	},
+	{
+		id: 'cookie',
+		label: 'Повторный логин (Google)',
+		icon: 'mdi-numeric-4-box',
+		to: '/google',
 	},
 ]
 const state = useState()
 
 const setVar = (e) => {
 	state.setVar(e)
+	state.setCookie(e)
 }
 </script>
 
