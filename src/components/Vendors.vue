@@ -6,16 +6,17 @@ div
 			span Войдите в аккаунт гугл
 		q-separator
 		q-card-section.choose
-			.zag Выберите аккаунт
-			p для перехода в приложение &nbsp;
+			.zag.text-center Выберите аккаунт
+			p.text-center для перехода в приложение &nbsp;
 				span Docsvison
 			q-list(separator bordered).q-mt-lg
 				q-item(v-for="n in 2" clickable v-ripple @click="$router.push('/congrat')")
 					q-item-section(avatar)
 						q-icon(name="mdi-account-circle")
-					q-item-section(side)
+					q-item-section
 						q-item-label.text-weight-bold username {{ n }}
 						q-item-label(caption) email@google.com
+					q-item-section(side v-if="n === 1") по умолчанию
 				q-item(clickable v-ripple @click="say")
 					q-item-section(avatar)
 						q-icon(name="mdi-account-circle")
@@ -73,7 +74,6 @@ const say = () => {
 	border-bottom: 1px solid #ccc;
 }
 .choose {
-	text-align: center;
 	padding: 2rem;
 	padding-top: 1rem;
 	.zag {
