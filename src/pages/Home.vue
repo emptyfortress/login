@@ -22,20 +22,26 @@
 </template>
 
 <script setup="setup">
-import { ref, computed } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useState } from '@/stores/store'
 import { router } from '@/router/router'
 import MyButton from '@/components/MyButton.vue'
 
 const isPwd = ref(true)
 const password = ref('')
-const dvlogin = computed(() => {
-	if (state.variant === 'cookie') {
-		return 'kmg01@docsvision.com'
-	} else return ''
-})
-
+const dvlogin = ref('')
 const state = useState()
+
+// const dvlogin = computed(() => {
+// 	if (state.variant === 'cookie') {
+// 		return 'kmg01@docsvision.com'
+// 	} else return ''
+// })
+watchEffect(() => {
+	if (state.variant === 'cookie') {
+		dvlogin.value = 'kmg01@docsvision.com'
+	}
+})
 
 const buttons = [
 	{ label: 'Продолжить с Google', icon: 'google' },
@@ -46,7 +52,9 @@ const setVendor = (e) => {
 }
 const back = () => {
 	state.setVar('success')
-	router.push('/')
+	dvlogin.value = ''
+	password.value = ''
+	router.push('/success')
 }
 </script>
 
