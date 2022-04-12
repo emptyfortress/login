@@ -10,7 +10,7 @@ div
 			p.text-center для перехода в приложение &nbsp;
 				span Docsvison
 			q-list(separator bordered).q-mt-lg
-				q-item(v-for="n in 2" clickable v-ripple @click="$router.push('/congrat')")
+				q-item(v-for="n in 2" clickable v-ripple @click="choose")
 					q-item-section(avatar)
 						q-icon(name="mdi-account-circle")
 					q-item-section
@@ -31,7 +31,7 @@ div
 			h6.q-mb-md Docsvison запрашивает доступ<br />к следующим данным:
 			p имя, фото профиля и электронный адрес.
 		q-card-section.text-center.column
-			q-btn(color="primary" unelevated label="Продолжить как <username>" @click="$router.push('/congrat')")
+			q-btn(color="primary" unelevated label="Продолжить как kmg01" @click="choose")
 			q-btn(color="grey-5" unelevated label="Отмена" text-color="black" @click="$router.push('/')").q-mt-sm.q-mb-lg
 			.text-caption Если вы продожите, приложение Docsvison получит непрерывный доступ к информации, которой вы делитесь, при этом Facebook будет записывать обращения приложения Docsvison.<br /> <a href="http://yandex.ru">Подробнее</a> о доступе и имеющихся у вас настройках.
 			.text-caption <a href="http://yandex.ru">Политика конфиденциальности</a> и <a href="http://yandex.ru">Условия</a> приложения Docsvison.
@@ -46,9 +46,10 @@ div
 
 </template>
 
-<script setup="setup" lang="ts">
+<script setup="setup">
 import { useState } from '@/stores/store'
 import { ref } from 'vue'
+import { router } from '@/router/router'
 
 const state = useState()
 
@@ -58,6 +59,13 @@ const variant = ref(state.variant)
 const vendor = ref(state.vendor)
 const say = () => {
 	account.value = !account.value
+}
+const choose = () => {
+	if (state.variant === 'success') {
+		router.push('/congrat')
+	} else if (state.variant === 'error') {
+		router.push('/stop')
+	}
 }
 </script>
 

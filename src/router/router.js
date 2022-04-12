@@ -3,6 +3,7 @@ import Home from '@/pages/Home.vue'
 import Cookie from '@/pages/Cookie.vue'
 import Vendors from '@/components/Vendors.vue'
 import Congrat from '@/components/Congrat.vue'
+import Stop from '@/components/Stop.vue'
 
 export const router = createRouter({
 	history: createWebHashHistory(),
@@ -26,7 +27,7 @@ export const router = createRouter({
 		{
 			path: '/cookie',
 			component: Cookie,
-			meta: { title: 'Docsvision' },
+			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 		{
 			path: '/congrat',
@@ -39,8 +40,8 @@ export const router = createRouter({
 			meta: { transition: 'slide-left', title: 'Docsvision' },
 		},
 		{
-			path: '/fb',
-			component: Vendors,
+			path: '/stop',
+			component: Stop,
 			meta: { transition: 'fade', title: 'Docsvision' },
 		},
 	],
