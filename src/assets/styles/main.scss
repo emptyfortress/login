@@ -2,6 +2,7 @@
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.3s ease;
+	position: absolute;
 }
 .fade-leave-to,
 .fade-enter-from {
