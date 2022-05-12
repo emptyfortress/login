@@ -5,7 +5,7 @@
 		//- img(src="@/assets/user.svg")
 		.q-mt-xl.text-white.text-h6 Здравствуйте, Оля!
 	.form
-		Mybutton(v-if="state.variant !== 'cookie'" v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/vendors" @click="setVendor(button.icon)")
+		Btn(v-if="state.variant !== 'cookie'" v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/vendors" @click="setVendor(button.icon)")
 		.grid(v-if="state.variant !== 'cookie'" )
 			q-separator(color="white")
 			div ИЛИ
@@ -28,7 +28,7 @@
 import { ref, watchEffect } from 'vue'
 import { useState } from '@/stores/store'
 import { router } from '@/router/router'
-import Mybutton from '@/components/Mybutton.vue'
+import Btn from '@/components/Btn.vue'
 
 const isPwd = ref(true)
 const password = ref('')
