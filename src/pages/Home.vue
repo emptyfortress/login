@@ -24,7 +24,7 @@
 			span(@click="back").link Сменить способ входа
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, watchEffect } from 'vue'
 import { useState } from '@/stores/store'
 import { router } from '@/router/router'
