@@ -2,7 +2,8 @@
 div
 	.card
 		img(src="@/assets/warning.svg").warn
-		.text  В процессе аутентификации возникли проблемы.<br />В Docsvision нет такого пользователя.<br /> <br />Пожалуйста, выберите другой способ входа или обратитесь к администратору.
+		.text  В процессе аутентификации возникли проблемы.<br />В Docsvision нет такого пользователя.<br /> <br />Пожалуйста, выберите другой способ входа или обратитесь к
+			span администратору.
 		q-btn(label="Понятно" color="primary" @click="$router.push('/')")
 		img(src="@/assets/logo.svg").logo
 </template>
@@ -40,6 +41,12 @@ div
 		font-size: 1.1rem;
 		margin-top: 2rem;
 		white-space: normal;
+		span {
+			margin-left: 0.5rem;
+			text-decoration: underline;
+			cursor: pointer;
+			color: yellow;
+		}
 	}
 }
 </style>

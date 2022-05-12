@@ -22,6 +22,8 @@
 		q-btn(color="primary"  v-if="$route.fullPath !== '/google'" :disabled="!(dvlogin.length && password.length)" @click="router.push('/congrat')").q-mt-md Войти
 		.capt(v-if="state.variant === 'cookie'")
 			span(@click="back").link Сменить способ входа
+	//- .mail Если у вас возникли сложности -<br>обратитесь к <a>администратору</a>
+
 </template>
 
 <script setup>
@@ -114,6 +116,17 @@ const repeatGoogle = () => {
 	img {
 		width: 24px;
 		margin-right: 1rem;
+	}
+}
+.mail {
+	display: inline-block;
+	color: white;
+	border: 1px solid #999;
+	border-radius: 4px;
+	padding: 3px 15px;
+	a:link,
+	a:visited {
+		text-decoration: underline;
 	}
 }
 </style>
