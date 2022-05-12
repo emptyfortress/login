@@ -2,10 +2,10 @@
 .card
 	img(src="@/assets/logo.svg")
 	.coki(v-if="state.variant === 'cookie'")
-		img(src="@/assets/user.svg")
-		.q-mt-md.text-white.text-h6 Привет, Оля!
+		//- img(src="@/assets/user.svg")
+		.q-mt-xl.text-white.text-h6 Здравствуйте, Оля!
 	.form
-		MyButton(v-if="state.variant !== 'cookie'" v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/vendors" @click="setVendor(button.icon)")
+		Mybutton(v-if="state.variant !== 'cookie'" v-for="button in buttons" :key="button.icon" :label="button.label" :icon="button.icon" url="/vendors" @click="setVendor(button.icon)")
 		.grid(v-if="state.variant !== 'cookie'" )
 			q-separator(color="white")
 			div ИЛИ
@@ -13,7 +13,7 @@
 
 		q-btn(v-if="$route.fullPath === '/google'" color="white" align="left" text-color="black" no-caps @click="repeatGoogle").with
 			img(src="@/assets/google.svg")
-			span Продолжить с Google
+			span Войти с Google
 
 		q-input(v-model="dvlogin" v-if="state.cookie !== 'cookie'" outlined dark dense placeholder="Docsvision login")
 		q-input(v-model="password" v-if="$route.fullPath !== '/google'" outlined dark dense :type="isPwd ? 'password' : 'text'" placeholder="Password")
@@ -21,14 +21,14 @@
 				q-icon(:name="isPwd ? 'mdi-eye-off' : 'mdi-eye'" class="cursor-pointer" @click="isPwd = !isPwd")
 		q-btn(color="primary"  v-if="$route.fullPath !== '/google'" :disabled="!(dvlogin.length && password.length)" @click="router.push('/congrat')").q-mt-md Войти
 		.capt(v-if="state.variant === 'cookie'")
-			span(@click="back").link Сменить пользователя
+			span(@click="back").link Сменить способ входа
 </template>
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { useState } from '@/stores/store'
 import { router } from '@/router/router'
-import MyButton from '@/components/MyButton.vue'
+import Mybutton from '@/components/Mybutton.vue'
 
 const isPwd = ref(true)
 const password = ref('')
@@ -42,8 +42,8 @@ watchEffect(() => {
 })
 
 const buttons = [
-	{ label: 'Продолжить с Google', icon: 'google' },
-	{ label: 'Продолжить с Facebook', icon: 'fb' },
+	{ label: 'Войти с Google', icon: 'google' },
+	{ label: 'Войти с Facebook', icon: 'fb' },
 ]
 const setVendor = (e) => {
 	state.setVendor(e)
